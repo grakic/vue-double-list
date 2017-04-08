@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="../dist/vue-double-list.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../dist/vue-double-list.css" rel="stylesheet">
+    <style>
+    .double-list .list {
+        height: 200px;
+    }
+    </style>
+
+  </head>
+  <body>
+  <div id="vue">
+    <double-list label="movies" :items="listItems" v-model="selectedItems"></double-list>
+  </div>
+  <script>
+  new Vue({
+      el: '#vue',
+      methods: {
+          onInput: function() {
+              console.log('Selection changed', this.selectedItems);
+          }
+      },
+      data: {
+          listItems: ['Back to the Future', 'The Future', 'Metropolis'],
+          selectedItems: []
+      }
+  })  
+  </script>
+
+  </body>
+</html>
+
